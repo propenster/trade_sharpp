@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package trade_sharpp;
+
+service order {
+  rpc order_create (order_request) returns (order_response);
+  rpc order_update (order_request) returns (order_response);
+  rpc order_cancel (order_request) returns (order_response);
+  rpc order_query (order_request) returns (order_response);
+}
+
+message order_request {
+  int32 model_id = 1;
+  repeated string order_id = 2;
+  repeated string symbol = 3;
+  repeated double price = 4;
+  repeated double volume = 5;
+  repeated string side = 6; // "buy" or "sell"
+  repeated string order_type = 7; // "market", "limit", etc.
+  repeated string time_in_force = 8; // "GTC", "IOC", etc.
+  repeated string order_status = 9; // "new", "partially filled", "filled", "canceled", etc.
+  repeated string client_order_id = 10; // Optional client-specific identifier
+  repeated string exchange = 11; // Exchange where the order is placed
+  repeated string account = 12; // Account identifier for the order
+  repeated string comment = 13; // Optional comment for the order
+  repeated string tag = 14; // Optional tag for categorization
+  repeated string strategy = 15; // Strategy identifier for the order
+
+
+  string config = 16;
+}
+
+message order_response {
+  repeated string order_id = 1;
+  repeated string symbol = 2;
+  repeated double price = 3;
+  repeated double volume = 4;
+  repeated string side = 5; // "buy" or "sell"
+  repeated string order_type = 6; // "market", "limit", etc.
+  repeated string time_in_force = 7; // "GTC", "IOC", etc.
+  repeated string order_status = 8; // "new", "partially filled", "filled", "canceled", etc.
+  repeated string client_order_id = 9; // Optional client-specific identifier
+  repeated string exchange = 10; // Exchange where the order is placed
+  repeated string account = 11; // Account identifier for the order
+  repeated string comment = 12; // Optional comment for the order
+  repeated string tag = 13; // Optional tag for categorization
+  repeated string strategy = 14; // Strategy identifier for the order
+
+
+  int32 status = 15;
+  string error_message = 16;
+}
