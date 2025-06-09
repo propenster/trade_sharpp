@@ -5,7 +5,6 @@
 #include <grpcpp/create_channel.h>
 #include <memory>
 
-
 class order_service final : public trade_sharpp::order::Service
 {
 public:
@@ -14,20 +13,16 @@ public:
     {
         std::cout << "Received order create request: " << request->DebugString() << std::endl;
 
-        // response->set_order_status("Order placed successfully");
-        // First order
         response->add_order_id("12345");
         response->add_symbol("AAPL");
         response->add_price(150.25);
         response->add_volume(100);
 
-        // Second order
+        // second order
         response->add_order_id("67890");
         response->add_symbol("GOOG");
         response->add_price(2800.00);
         response->add_volume(50);
-
-        // printOrderResponse(*response);
 
         return grpc::Status::OK;
     }
@@ -36,7 +31,6 @@ public:
                                       trade_sharpp::order_response *response) override
     {
         std::cout << "Received order cancel request: " << request->DebugString() << std::endl;
-        // response->set_order_status("Order cancelled successfully");
         return grpc::Status::OK;
     }
 
@@ -44,10 +38,9 @@ public:
                                       trade_sharpp::order_response *response) override
     {
         std::cout << "Received order update request: " << request->DebugString() << std::endl;
-        // response->set_order_status("Order updated successfully");
         return grpc::Status::OK;
     }
-}; // <-- Added missing semicolon here
+};
 
 int main(int, char **)
 {
@@ -59,9 +52,6 @@ int main(int, char **)
 
     grpc::ServerBuilder builder;
     builder.AddListeningPort("127.0.0.1:50051", grpc::InsecureServerCredentials());
-    // LOG(ERROR) << "Error occurred!";
-    // GPR_LOG(GPR_ERROR, "Something went wrong!");
-
     order_service my_service;
     builder.RegisterService(&my_service);
 

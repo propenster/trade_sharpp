@@ -57,6 +57,11 @@ HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #ifndef FIX8_4D796669785F74797065732E687070_
 #define FIX8_4D796669785F74797065732E687070_
 
+#include "fix8/f8types.hpp"
+#include <fix8/field.hpp>
+#include <fix8/timer.hpp>
+#include <fix8/f8includes.hpp>
+
 namespace FIX8 {
 namespace FIX4200 {
 
