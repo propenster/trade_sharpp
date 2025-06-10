@@ -1,9 +1,9 @@
-# trade_sharpp - A complete suite of High-Frequency Trading setup with C++ backend, C# .NET 8 Frontend (ClientApp)
+# trade_sharpp - A complete suite of High-Frequency Trading setup with C++ backend, C# .NET 8 Frontend (ClientApp), RPC for Order Entry and MarketData FixEngine
 
-## A complete suite of High-Frequency Trading setup with C++ backend, C# .NET 8 Frontend (ClientApp)
+## A complete suite of High-Frequency Trading setup with C++ backend, C# .NET 8 Frontend (ClientApp), RPC for Order Entry and MarketData FixEngine
 
 
-## How it works...
+### How it works...
 
 
 - the Client App written in either C#/.NET 8 or Typescript (as in React) either exposes APIs that users submit trade orders through...
